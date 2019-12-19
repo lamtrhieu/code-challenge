@@ -10,24 +10,10 @@ import java.io.PrintStream;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-class AnimalTest {
-
-
-    private static PrintStream printStream;
-    private static final PrintStream originalOut = System.out;
+class AnimalTest extends BaseTest {
 
     private Animal animal;
 
-    @BeforeAll
-    static void setup() {
-        printStream = mock(PrintStream.class);
-        System.setOut(printStream);
-    }
-
-    @AfterAll
-    static void tearDown() {
-        System.setOut(originalOut);
-    }
 
     @BeforeEach
     void beforeEach() {
