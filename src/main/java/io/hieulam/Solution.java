@@ -64,6 +64,14 @@ interface Singable {
     void sing();
 }
 
+class Phone implements Singable {
+
+    @Override
+    public void sing() {
+        System.out.println("Reng Reng Reng");
+    }
+}
+
 class Parrot extends Bird {
     private Singable friend;
 

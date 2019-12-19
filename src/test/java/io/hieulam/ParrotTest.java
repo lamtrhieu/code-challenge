@@ -41,4 +41,18 @@ class ParrotTest extends BaseTest {
         verify(printStream).println("Cock-a-doodle-doo");
     }
 
+    @Test
+    public void testParrotWithDuck() {
+        parrot = new Parrot(new Duck());
+        parrot.sing();
+        verify(printStream).println("Quack, quack");
+    }
+
+    @Test
+    public void testParrotWithPhone() {
+        parrot = new Parrot(new Phone());
+        parrot.sing();
+        verify(printStream).println("Reng Reng Reng");
+    }
+
 }
