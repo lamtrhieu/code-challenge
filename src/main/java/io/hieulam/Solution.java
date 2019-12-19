@@ -16,6 +16,26 @@ class Bird extends Animal {
     }
 }
 
+class Duck extends Bird {
+    @Override
+    void sing() {
+        System.out.println("Quack, quack");
+    }
+
+    void swim() {
+        System.out.println("I am swimming");
+    }
+}
+
+class Chicken extends Bird {
+    @Override
+    void sing() {
+        System.out.println("Cluck, cluck");
+    }
+
+
+}
+
 public class Solution {
     public static void main(String[] args) {
         Bird bird = new Bird();
