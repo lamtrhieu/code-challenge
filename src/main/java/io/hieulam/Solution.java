@@ -33,7 +33,17 @@ class Chicken extends Bird {
         System.out.println("Cluck, cluck");
     }
 
+    @Override
+    void fly() {
+        throw new RuntimeException("I cannot fly. Sorry");
+    }
+}
 
+class Rooster extends Chicken {
+    @Override
+    void sing() {
+        System.out.println("Cock-a-doodle-doo");
+    }
 }
 
 public class Solution {
