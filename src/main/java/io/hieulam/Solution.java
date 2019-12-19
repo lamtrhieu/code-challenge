@@ -85,6 +85,65 @@ class Parrot extends Bird {
     }
 }
 
+interface Swimmable {
+    void swim();
+}
+
+enum Size {SMALL, LARGE};
+
+enum Color {GREY, ORANGE};
+
+
+class Fish implements  Swimmable{
+
+    protected Size size;
+
+    protected Color color;
+
+    public Fish() {}
+
+    public Fish(Size size, Color color) {
+        this.size = size;
+        this.color = color;
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("I am swimming");
+    }
+}
+
+class Shark extends Fish {
+
+    public Shark() {
+        super(Size.LARGE, Color.GREY);
+    }
+
+    public void eat() {
+        System.out.println("I am eating other.");
+    }
+}
+
+class ClownFish extends Fish {
+    public ClownFish() {
+        super(Size.SMALL, Color.ORANGE);
+    }
+
+    public void makeJokes() {
+        System.out.println("I am making jokes");
+    }
+}
+
+class Dolphin implements Swimmable {
+    @Override
+    public void swim() {
+        System.out.println("Dolphim is swimmming");
+    }
+}
+
+
+
+
 
 public class Solution {
     public static void main(String[] args) {
