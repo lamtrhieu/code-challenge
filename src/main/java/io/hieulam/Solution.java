@@ -34,7 +34,7 @@ class Chicken extends Bird {
     }
 
     @Override
-    void fly() {
+    public void fly() {
         throw new RuntimeException("I cannot fly. Sorry");
     }
 }
