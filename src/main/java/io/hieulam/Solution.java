@@ -1,35 +1,35 @@
 package io.hieulam;
 
 class Animal {
-    void walk(){
+    public void walk(){
         System.out.println("I am walking");
     }
 }
 
-class Bird extends Animal {
-    void fly() {
+class Bird extends Animal implements Singable {
+    public void fly() {
         System.out.println("I am flying");
     }
 
-    void sing() {
+    public void sing() {
         System.out.println("I am singing");
     }
 }
 
 class Duck extends Bird {
     @Override
-    void sing() {
+    public void sing() {
         System.out.println("Quack, quack");
     }
 
-    void swim() {
+    public void swim() {
         System.out.println("I am swimming");
     }
 }
 
 class Chicken extends Bird {
     @Override
-    void sing() {
+    public void sing() {
         System.out.println("Cluck, cluck");
     }
 
@@ -41,10 +41,42 @@ class Chicken extends Bird {
 
 class Rooster extends Chicken {
     @Override
-    void sing() {
+    public void sing() {
         System.out.println("Cock-a-doodle-doo");
     }
 }
+
+class Dog extends Animal implements Singable {
+    @Override
+    public void sing() {
+        System.out.println("Woof, woof");
+    }
+}
+
+class Cat extends Animal implements Singable {
+    @Override
+    public void sing() {
+        System.out.println("Meow");
+    }
+}
+
+interface Singable {
+    void sing();
+}
+
+class Parrot extends Bird {
+    private Singable friend;
+
+    public Parrot(Singable friend) {
+        this.friend = friend;
+    }
+
+    @Override
+    public void sing() {
+        friend.sing();
+    }
+}
+
 
 public class Solution {
     public static void main(String[] args) {
