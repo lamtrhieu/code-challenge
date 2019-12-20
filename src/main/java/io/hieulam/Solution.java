@@ -293,7 +293,7 @@ public class Solution {
         System.out.println(canFly + " " + canWalk + " " + canSing + " " + canSwim);
     }
 
-    private static boolean canSwim(Animal animal) {
+    public static boolean canSwim(Animal animal) {
         boolean result = false;
         if (animal instanceof Swimmable) {
             try {
@@ -307,7 +307,7 @@ public class Solution {
         return result;
     }
 
-    private static boolean canSing(Animal animal) {
+    public static boolean canSing(Animal animal) {
         boolean result = false;
         if (animal instanceof Singable) {
             try {
@@ -321,7 +321,7 @@ public class Solution {
         return result;
     }
 
-    private static boolean canWalk(Animal animal) {
+    public static boolean canWalk(Animal animal) {
         boolean result = false;
         if (animal instanceof Walkable) {
             try {
