@@ -11,7 +11,7 @@
 3b Rooster is just a specific kind of Chicken, I can extends from Chicken.\
 3c I can use composition instead of inheritance. Inside a rooster can contain a chicken to delegate the method call to.\
 
-- 4. I use a Bridge pattern here so that a Parrot can have friend variable. And parrot will immitate friend sound. 
+4. I use a Bridge pattern here so that a Parrot can have friend variable. And parrot will immitate friend sound. 
 I just use friend sing method. 
 
 ### B 
