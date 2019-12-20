@@ -12,13 +12,9 @@ class FishTest extends BaseTest {
 
     private Fish fish;
 
-    @BeforeEach
-    void beforeEach() {
-        fish = new Fish();
-    }
-
     @Test
     public void testFishSwim() {
+        fish = new Fish();
         fish.swim();
         verify(printStream).println("I am swimming");
     }

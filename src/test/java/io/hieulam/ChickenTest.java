@@ -4,6 +4,8 @@ package io.hieulam;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 
 class ChickenTest extends BaseTest {
@@ -32,8 +34,9 @@ class ChickenTest extends BaseTest {
 
     @Test
     public void testBirdFly() {
-        chicken.fly();
-        verify(printStream).println("I am flying");
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> chicken.fly());
+
+        assertThat(exception.getMessage()).isEqualTo("I cannot fly. Sorry");
     }
 
 

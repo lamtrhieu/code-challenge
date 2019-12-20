@@ -11,17 +11,17 @@ import static org.mockito.Mockito.verify;
 class BaseTest {
 
 
-    protected static PrintStream printStream;
-    protected static final PrintStream originalOut = System.out;
+    protected PrintStream printStream;
+    protected final PrintStream originalOut = System.out;
 
-    @BeforeAll
-    public static void setup() {
+    @BeforeEach
+    public void setup() {
         printStream = mock(PrintStream.class);
         System.setOut(printStream);
     }
 
-    @AfterAll
-    public static void tearDown() {
+    @AfterEach
+    public void afterEach() {
         System.setOut(originalOut);
     }
 
