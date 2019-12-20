@@ -8,16 +8,16 @@
 2 I will override sing method to provide specific sound for each type of Bird. And for Chicken, I will throw exception when method fly is called. 
 
 3a Override method sing()\
-3b Rooster is just a specific kind of Chicken, I can extends from Chicken.\
+3b Rooster is just a specific kind of Chicken, I can extends from Chicken. \
 3c I can use composition instead of inheritance. Inside a rooster can contain a chicken to delegate the method call to.\
 
 4 I use a Bridge pattern here so that a Parrot can have friend variable. And parrot will immitate friend sound. 
 I just use friend sing method. 
 
 ### B 
-1a. Will implements specific interface here 
-1b. Add specific property for each kind of fish
-1c. I use specifice interface Swimmable so Dolphin don't need to extends Fish
+1a. Will implements specific interface here \
+1b. Add specific property for each kind of fish \
+1c. I use specifice interface Swimmable so Dolphin don't need to extends Fish \
 
 ### D
 1a Just need to implement Flyable\
