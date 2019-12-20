@@ -2,17 +2,16 @@
 
 ### A
 
-1a. I mock the PrintStream and set it to System and verify it using Mockito. I will apply the same technique for all other classes
-1b. I will segregrate it into an interface Singable.
+1a I mock the PrintStream and set it to System and verify it using Mockito. I will apply the same technique for all other classes\
+1b I will segregrate it into an interface Singable.
 
-2. I will override sing method to provide specific sound for each type of Bird.
-And for Chicken, I will throw exception when method fly is called. 
+2 I will override sing method to provide specific sound for each type of Bird. And for Chicken, I will throw exception when method fly is called. 
 
-3a. Override method sing()
-3b. Rooster is just a specific kind of Chicken, I can extends from Chicken.
-3c. I can use composition instead of inheritance. Inside a rooster can contain a chicken to delegate the method call to.
+3a Override method sing()\
+3b Rooster is just a specific kind of Chicken, I can extends from Chicken.\
+3c I can use composition instead of inheritance. Inside a rooster can contain a chicken to delegate the method call to.\
 
-4. I use a Bridge pattern here so that a Parrot can have friend variable. And parrot will immitate friend sound. 
+- 4. I use a Bridge pattern here so that a Parrot can have friend variable. And parrot will immitate friend sound. 
 I just use friend sing method. 
 
 ### B 
@@ -21,8 +20,8 @@ I just use friend sing method.
 1c. I use specifice interface Swimmable so Dolphin don't need to extends Fish
 
 ### D
-1a. Just need to implement Flyable
-2. I use state pattern and have 2 kind of state (caterpillar and butterfly). So depend on the state, some method can be call, other will throw exception.
+1a Just need to implement Flyable\
+2 I use state pattern and have 2 kind of state (caterpillar and butterfly). So depend on the state, some method can be call, other will throw exception.\
 
 ### E
 
