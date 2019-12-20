@@ -1,13 +1,10 @@
 package io.hieulam;
 
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-
-import java.io.PrintStream;
-
-
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 class AnimalTest extends BaseTest {
@@ -26,11 +23,11 @@ class AnimalTest extends BaseTest {
 
     }
 
-    @Test
-    public void testAnimalWalk() {
-        animal.walk();
-        verify(printStream).println("I am walking");
-    }
+//    @Test
+//    public void testAnimalWalk() {
+//        animal.walk();
+//        verify(printStream).println("I am walking");
+//    }
 
 
 }

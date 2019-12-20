@@ -1,12 +1,14 @@
 package io.hieulam;
 
+import java.util.Arrays;
+
 class Animal {
-    public void walk(){
-        System.out.println("I am walking");
-    }
+
 }
 
-class Bird extends Animal implements Singable {
+class Bird extends Animal implements Singable, Flyable, Walkable {
+
+    @Override
     public void fly() {
         System.out.println("I am flying");
     }
@@ -14,6 +16,11 @@ class Bird extends Animal implements Singable {
     @Override
     public void sing() {
         System.out.println("I am singing");
+    }
+
+    @Override
+    public void walk() {
+        System.out.println("I am walking");
     }
 }
 
@@ -65,6 +72,18 @@ interface Singable {
     void sing();
 }
 
+interface Swimmable {
+    void swim();
+}
+
+interface Walkable {
+    void walk();
+}
+
+interface Flyable {
+    void fly();
+}
+
 class Phone implements Singable {
 
     @Override
@@ -86,16 +105,14 @@ class Parrot extends Bird {
     }
 }
 
-interface Swimmable {
-    void swim();
-}
+
 
 enum Size {SMALL, LARGE};
 
 enum Color {GREY, ORANGE};
 
 
-class Fish implements  Swimmable{
+class Fish extends Animal implements  Swimmable{
 
     protected Size size;
 
@@ -135,14 +152,14 @@ class ClownFish extends Fish {
     }
 }
 
-class Dolphin implements Swimmable {
+class Dolphin extends Animal implements Swimmable {
     @Override
     public void swim() {
         System.out.println("Dolphim is swimmming");
     }
 }
 
-abstract class Insect {
+abstract class Insect extends Animal implements Flyable, Walkable{
     public abstract void fly();
     public abstract void walk();
 }
@@ -196,11 +213,110 @@ class Butterfly extends Insect {
     }
 }
 
+class Frog extends Animal implements Singable, Swimmable {
+
+    @Override
+    public void sing() {
+        System.out.println("Op Op Op");
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("Frog is swimming");
+    }
+
+}
+
 public class Solution {
     public static void main(String[] args) {
         Bird bird = new Bird();
         bird.walk();
         bird.fly();
         bird.sing();
+
+        Animal[] animals = new Animal[]{
+                new Bird(),
+                new Duck(),
+                new Chicken(),
+                new Rooster(),
+                new Parrot(new Cat()),
+                new Fish(),
+                new Shark(),
+                new ClownFish(),
+                new Dolphin(),
+                new Frog(),
+                new Dog(),
+                new Butterfly(),
+                new Cat()
+        };
+
+        //Count animal can fly
+        long canFly = Arrays.stream(animals).filter(o -> canFly(o)).count();
+        //Count animal can walk
+        long canWalk = Arrays.stream(animals).filter(o -> canWalk(o)).count();
+        //Count animal can sing
+        long canSing = Arrays.stream(animals).filter(o -> canSing(o)).count();
+        //Count animal can swim
+        long canSwim = Arrays.stream(animals).filter(o -> canSwim(o)).count();
+
+        System.out.println(canFly + " " + canWalk + " " + canSing + " " + canSwim);
     }
+
+    private static boolean canSwim(Animal animal) {
+        boolean result = false;
+        if (animal instanceof Swimmable) {
+            try {
+                ((Swimmable) animal).swim();
+                result = true;
+            } catch (RuntimeException exception) {
+                result = false;
+            }
+        }
+
+        return result;
+    }
+
+    private static boolean canSing(Animal animal) {
+        boolean result = false;
+        if (animal instanceof Singable) {
+            try {
+                ((Singable) animal).sing();
+                result = true;
+            } catch (RuntimeException exception) {
+                result = false;
+            }
+        }
+
+        return result;
+    }
+
+    private static boolean canWalk(Animal animal) {
+        boolean result = false;
+        if (animal instanceof Walkable) {
+            try {
+                ((Walkable) animal).walk();
+                result = true;
+            } catch (RuntimeException exception) {
+                result = false;
+            }
+        }
+
+        return result;
+    }
+
+    public static boolean canFly(Animal animal) {
+        boolean result = false;
+        if (animal instanceof Flyable) {
+            try {
+                ((Flyable) animal).fly();
+                result = true;
+            } catch (RuntimeException exception) {
+                result = false;
+            }
+        }
+
+        return result;
+    }
+
+
 }
