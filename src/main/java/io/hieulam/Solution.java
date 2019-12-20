@@ -11,6 +11,7 @@ class Bird extends Animal implements Singable {
         System.out.println("I am flying");
     }
 
+    @Override
     public void sing() {
         System.out.println("I am singing");
     }
