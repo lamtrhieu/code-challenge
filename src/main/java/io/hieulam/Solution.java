@@ -142,9 +142,59 @@ class Dolphin implements Swimmable {
     }
 }
 
+abstract class Insect {
+    public abstract void fly();
+    public abstract void walk();
+}
 
 
+class Butterfly extends Insect {
 
+    private Insect internalState = new CatepillarState();
+
+    public void fly() {
+        internalState.fly();
+    }
+
+    public void walk() {
+        internalState.walk();
+    }
+
+    public void transform() {
+        System.out.println("Transform from Caterpillar to Butterfly");
+        this.internalState = new ButterflyState();
+    }
+
+    public void sing() {
+        throw new RuntimeException("Butterfly cannot sing");
+    }
+
+    private class CatepillarState extends Insect {
+
+        @Override
+        public void fly() {
+            throw new RuntimeException("I am Catepillar. I cannot fly yet");
+        }
+
+        @Override
+        public void walk() {
+            System.out.println("Catepillar is walking");
+        }
+    }
+
+    private class ButterflyState extends Insect {
+
+        @Override
+        public void fly() {
+            System.out.println("Butterly is flying");
+        }
+
+        @Override
+        public void walk() {
+            throw new RuntimeException("I am Butterly. I cannot walk");
+        }
+    }
+}
 
 public class Solution {
     public static void main(String[] args) {
