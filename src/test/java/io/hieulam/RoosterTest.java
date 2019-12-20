@@ -41,5 +41,12 @@ class RoosterTest extends BaseTest {
         assertThat(runtimeException.getMessage()).isEqualTo("I cannot fly. Sorry");
     }
 
+    @Test
+    public void testRoosterCanSoundDifferent() {
+        rooster = new Rooster(new VietnameseTone());
+        rooster.sing();
+        verify(printStream).println("o-o-o-o");
+    }
+
 
 }

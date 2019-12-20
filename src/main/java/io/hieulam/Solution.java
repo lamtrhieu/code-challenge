@@ -47,10 +47,41 @@ class Chicken extends Bird {
     }
 }
 
+interface Tone {
+    String getTone();
+}
+
+class VietnameseTone implements Tone {
+
+    @Override
+    public String getTone() {
+        return "o-o-o-o";
+    }
+}
+
+class EnglishTone implements Tone {
+
+    @Override
+    public String getTone() {
+        return "Cock-a-doodle-doo";
+    }
+}
+
 class Rooster extends Chicken {
+
+    private Tone tone;
+
+    public Rooster() {
+        this.tone = new EnglishTone();
+    }
+
+    public Rooster(Tone tone) {
+        this.tone = tone;
+    }
+
     @Override
     public void sing() {
-        System.out.println("Cock-a-doodle-doo");
+        System.out.println(tone.getTone());
     }
 }
 
